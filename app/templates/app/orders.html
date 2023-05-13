@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Pedido{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+ <h3>Bem vindo(a) <span class="text-capitalize">{{request.user}}</span></h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Pedidos</a></li>
+   </ul>
+  </div><!--1st Col Closed-->
+ 
+   <div class="col-sm-9 offset-sm-1">
+    {% for op in order_placed %}
+    <div class="row shadow-sm mb-3">
+        <div class="col-sm-2">
+            <img src="{{op.product.product_image.url}}" alt="" srcset="" class="img-fluid" height="150" width="150">
+    </div>
+    <div class="col-sm-7">
+        <p>Produto: {{op.product.title}}</p>
+        <p>Quantidade: {{op.quantity}}</p>
+        <p>Valor: {{op.total_cost}}</p>
+    </div>
+    <div class="col-sm-3 fw-bold">
+        <p>Status do Pedido: {{op.status}}</p>
+        {% if op.status == 'Aceito' %}
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% endif %}
+
+        {% if op.status == 'Enviado' %}
+        <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% endif %}
+
+        {% if op.status == 'A Caminho' %}
+        <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% endif %}
+
+        {% if op.status == 'Entregue' %}
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% endif %}
+
+    </div>
+    </div>
+    {% endfor %}
+  </div> <!--2nd Col Closed-->
+ </div> <!--Row Closed-->
+</div> <!--Container Closed-->
+{% endblock main-content %}

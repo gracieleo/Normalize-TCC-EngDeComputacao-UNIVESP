@@ -1,0 +1,91 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Início{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Próximo</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block main-content %}
+<div class="m-3">
+ <h2>Proteção Cabeça</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for pc in protecaoCabeca %}
+  <a href="{% url 'product-detail' pc.id %}" class="btn"><div class="item"><img src="{{pc.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{pc.title}}</span><br><span class="fs-5">R$ {{pc.discounted_price}} </span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 1st Product Slider -->
+
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2>Proteção Auditiva</h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+  {% for pa in protecaoAuditiva %}
+  <a href="{% url 'product-detail' pa.id %}" class="btn"><div class="item"><img src="{{pa.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{pa.title}}</span><br><span class="fs-5">R$ {{pa.discounted_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+<!-- 3nd Product Slider -->
+<div class="mx-3">
+  <h2>Proteção Respiratória</h2>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider3">
+   {% for pr in protecaoRespiratoria %}
+   <a href="{% url 'product-detail' pr.id %}" class="btn"><div class="item"><img src="{{pr.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{pr.title}}</span><br><span class="fs-5">R$ {{pr.discounted_price}}</span></div></a>
+   {% endfor %}
+  </div>
+ </div>
+ <!-- End 3nd Product Slider -->
+
+ <!-- 4nd Product Slider -->
+<div class="mx-3">
+  <h2>Proteção Mãos</h2>
+  <!-- Slider 4 -->
+  <div class="owl-carousel" id="slider3">
+   {% for pm in protecaoMaos %}
+   <a href="{% url 'product-detail' pm.id %}" class="btn"><div class="item"><img src="{{pm.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{pm.title}}</span><br><span class="fs-5">R$ {{pm.discounted_price}}</span></div></a>
+   {% endfor %}
+  </div>
+ </div>
+ <!-- End 4nd Product Slider -->
+
+ <!-- 5nd Product Slider -->
+<div class="mx-3">
+  <h2>Proteção Pés</h2>
+  <!-- Slider 5 -->
+  <div class="owl-carousel" id="slider3">
+   {% for pp in protecaoPes %}
+   <a href="{% url 'product-detail' pp.id %}" class="btn"><div class="item"><img src="{{pp.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{pp.title}}</span><br><span class="fs-5">R$ {{pp.discounted_price}}</span></div></a>
+   {% endfor %}
+  </div>
+ </div>
+ <!-- End 5nd Product Slider -->
+{% endblock main-content %}
+

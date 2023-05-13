@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Contato{% endblock title %}
+{% block main-content %}
+
+<div class="fixed">
+    <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="..."> 
+</div>
+
+<div class="container my-5">
+    <h1 class="heading"><span>Nossos Contatos</span></h1>
+    <br>
+
+ <div class="row">
+    <div class="content">
+        <h5>Endereço: </h5>
+        <p>Rua das Camélias, 1452 - Centro - Santos-SP</p>
+        <h5>Telefone: </h5>
+        <p>
+            (13) 3561-1234 <br>
+            (13) 3561-4321 
+        </p>
+        <h5>E-mail: </h5>
+        <p>lojanormalize@email.com</p>
+    </div>  
+ </div>
+</div>
+{% endblock main-content %}
